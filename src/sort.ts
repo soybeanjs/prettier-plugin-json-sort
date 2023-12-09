@@ -116,7 +116,7 @@ export function sortExportsOfPackageJson(properties: ObjectProperty[]) {
       if (property.type === 'ObjectProperty') {
         const children = (property.value as ObjectExpression).properties;
 
-        return children.some(child => exportsOrder.includes(child.key.value));
+        return children?.some(child => exportsOrder.includes(child.key.value)) || false;
       }
 
       return false;
